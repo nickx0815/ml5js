@@ -15,9 +15,9 @@ class mouse_request():
             return
 
 
-    try:
-        # while True:
-        for x in range(0,50):
-            req()
-    except KeyboardInterrupt:
-        raise TypeError("Request Stopped")
+try:
+    # while True:
+    for x in range(0,50):
+        req()
+except KeyboardInterrupt:
+    raise TypeError("Request Stopped")
