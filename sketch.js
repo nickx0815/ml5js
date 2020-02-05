@@ -26,7 +26,7 @@ let poses = [];
 //  }
 
 function setup() {
-  frameRate(60);
+  frameRate(24);
   createCanvas(640, 480);
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -38,23 +38,25 @@ function setup() {
   poseNet.on('pose', function(results) {
     poses = results;
     // function loadDoc() {
-      console.log(poses)
-      var r_w_x = JSON.stringify(poses[0].pose.keypoints[0].position['x']);
-      var r_w_y = JSON.stringify(poses[0].pose.keypoints[0].position['y']);
-      r_w_x = r_w_x.substr(0,3);
-      r_w_y = r_w_y.substr(0,3);
-      var url = "http://localhost:8000/pose/".concat(r_w_x, r_w_y);
-      //var url = "http://localhost:8000/pose/".concat('100', '100');
-      //console.log(url)
-      var xhttp = new XMLHttpRequest();
-      xhttp.open("GET", url, true);
-      xhttp.timeout = 10; 
-      xhttp.send(null);
-      //console.log(r_w_x, r_w_y)
-    // }
+    //   console.log(poses)
+    //   var r_w_x = JSON.stringify(poses[0].pose.keypoints[0].position['x']);
+    //   var r_w_y = JSON.stringify(poses[0].pose.keypoints[0].position['y']);
+    //   var r_w_x = JSON.stringify(poses[0].pose.keypoints[9].position['x']);
+    //   var r_w_y = JSON.stringify(poses[0].pose.keypoints[9].position['y']);
+    //   r_w_x = r_w_x.substr(0,3);
+    //   r_w_y = r_w_y.substr(0,3);
+    //   var url = "http://localhost:8000/pose/".concat(r_w_x, r_w_y);
+    //   //var url = "http://localhost:8000/pose/".concat('100', '100');
+    //   //console.log(url)
+    //   var xhttp = new XMLHttpRequest();
+    //   xhttp.open("GET", url, true);
+    //   xhttp.timeout = 10; 
+    //   xhttp.send(null);
+    //   //console.log(r_w_x, r_w_y)
+    // // }
   
-    // var interval = 50;
-    // setInterval(loadDoc, interval);
+    // // var interval = 50;
+    // // setInterval(loadDoc, interval);
   });
   // Hide the video element, and just show the canvas
   video.hide();

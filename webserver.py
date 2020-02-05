@@ -53,21 +53,30 @@ class mouse_request(Thread):
             self.req()
 
     def req(self):
-        try:
-            req = requests.get('http://localhost:8000/mouse/', timeout=0.5)
-            req_cont = req.content.split()
-            #print(3*int(req_cont[0]), 1080-(2.125*int(req_cont[1]) ))
-            pyautogui.moveTo(1920 - (3*int(req_cont[0])), 2.125*int(req_cont[1]) )
-            #pyautogui.moveTo(100,100)
-            req.close()
-        except KeyboardInterrupt:
-            pass
+        while True:
+            try:
+                req = requests.get('http://localhost:8000/mouse/', timeout=0.04)
+                req_cont = req.content.split()
+                req_cont[0] = req_cont[0].decode('utf-8')
+                req_cont[1] = req_cont[1].decode('utf-8')
+                #print(3*int(req_cont[0]), 1080-(2.125*int(req_cont[1]) ))
+                if '.' in str(req_cont[0]):
+                    req_cont[0]= str(req_cont[0]).replace('.','')
+                if '.' in str(req_cont[1]):
+                    req_cont[1]= str(req_cont[1]).replace('.','')
+                pyautogui.moveTo(1920 - (3*int(req_cont[0])), 2.125*int(req_cont[1]) )
+                #pyautogui.moveTo(100,100)
+                req.close()
+            except:
+                pass
 
 thread1 = webserver(1, 'thread1', 1)
 thread2 = mouse_request(2, 'thread2', 2)
+
 try:
     thread1.start()
     thread2.start()
+    
 except KeyboardInterrupt:
     pass
 thread1.join()

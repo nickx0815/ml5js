@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from routes import routes, data
 from singleton import data_store
+import pyautogui
 
 class Server(BaseHTTPRequestHandler):
 
