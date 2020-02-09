@@ -1,4 +1,3 @@
-
 class Singleton:
 
     def __init__(self, cls):
@@ -17,10 +16,16 @@ class Singleton:
     def __instancecheck__(self, inst):
         return isinstance(inst, self._cls)
 
+
 @Singleton
 class data_store(object):
-    x = '0'
-    y = '0'
+    __data = ''
 
     def __init__(self):
         pass
+
+    def get_data(self):
+        return self.__data
+
+    def set_data(self, data):
+        self.__data = data
