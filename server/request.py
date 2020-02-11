@@ -35,25 +35,25 @@ class request_data:
             pyautogui.moveTo(1920 - (3 * float(data['x'])), 2.25 * float(data['y']))
             previousPosition = int(data['x']), int(data['y'])
 
-    def rightClick(self, dataWrist, dataShoulder):
+    def rightClick(self, wrist, shoulder):
         global rightClickable
-        if dataWrist['y'] < dataShoulder['y'] and rightClickable:
+        if wrist['y'] < shoulder['y'] and rightClickable:
             pyautogui.click(button='right')
-            print('Right Clicked')
+            #print('Right Clicked')
             rightClickable = False
-        elif dataWrist['y'] > dataShoulder['y'] and not rightClickable:
+        elif wrist['y'] > shoulder['y'] and not rightClickable:
             rightClickable = True
-            print('Right Reset')
+            #print('Right Reset')
 
-    def leftClick(self, dataWrist, dataShoulder):
+    def leftClick(self, wrist, shoulder):
         global leftClickable
-        if dataWrist['y'] < dataShoulder['y'] and leftClickable:
+        if wrist['y'] < shoulder['y'] and leftClickable:
             pyautogui.click(button='left')
-            print('Left Clicked')
+            #print('Left Clicked')
             leftClickable = False
-        elif dataWrist['y'] > dataShoulder['y'] and not leftClickable:
+        elif wrist['y'] > shoulder['y'] and not leftClickable:
             leftClickable = True
-            print('Left Reset')
+            #print('Left Reset')
 
     def run(self):
         while True:
