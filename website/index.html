@@ -3,7 +3,7 @@
   
 <head>
   <meta charset="UTF-8">
-  <title>PoseNet example using p5.js</title>
+  <title>PoseNet using p5.js</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
@@ -11,7 +11,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     function sendData() {
+
       var data = JSON.stringify(poses[0]['pose']);
+      // for (var prop in data) {
+      //   document.getElementById('list_poses').innerHTML += '<li>' + prop + '</li>';
+      // }
       let socket = new WebSocket("ws://localhost:8000");
       socket.onopen = function(e) {
         socket.send(JSON.stringify(data))
@@ -23,9 +27,12 @@
   </script>
 
 <body>
-  <h1>PoseNet example using p5.js</h1>
   <p id='status'>Loading model...</p>
   <script src="sketch.js"></script>
+<!--  <ul id="list_poses">-->
+
+
+  </ul>
 </body>
 
 </html>

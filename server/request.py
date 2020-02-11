@@ -1,17 +1,15 @@
 #!/usr/bin/env python
 
-# WS client example
-
 import asyncio
 import websockets
 import json
 import pyautogui
 import ast
-from time import sleep
-import os
 
 leftClickable = True
 rightClickable = True
+previousPosition = (0, 0)
+
 
 class request_data:
 
@@ -26,16 +24,16 @@ class request_data:
     def actions(self, _data):
         if 'nose' in _data:
             self.mouseMove(_data['nose'])
-        if 'rightWrist' in _data:
+        if 'rightWrist' in _data and 'rightShoulder' in _data:
             self.rightClick(_data['rightWrist'], _data['rightShoulder'])
-        if 'leftWrist' in _data:
+        if 'leftWrist' in _data and 'leftShoulder' in _data:
             self.leftClick(_data['leftWrist'], _data['leftShoulder'])
 
-
     def mouseMove(self, data):
-        actualMousePosition = pyautogui.position()
-        if not actualMousePosition['x'] == int(data['x']) and not actualMousePosition['y']==int(data['y']):
-            pyautogui.moveTo(1920 - (3 * data['x']), 2.25 * data['y'])
+        global previousPosition
+        if not previousPosition[0] == int(data['x']) and not previousPosition[1] == int(data['y']):
+            pyautogui.moveTo(1920 - (3 * float(data['x'])), 2.25 * float(data['y']))
+            previousPosition = int(data['x']), int(data['y'])
 
     def rightClick(self, dataWrist, dataShoulder):
         global rightClickable
@@ -47,11 +45,10 @@ class request_data:
             rightClickable = True
             print('Right Reset')
 
-
     def leftClick(self, dataWrist, dataShoulder):
         global leftClickable
         if dataWrist['y'] < dataShoulder['y'] and leftClickable:
-            pyautogui.click(button='right')
+            pyautogui.click(button='left')
             print('Left Clicked')
             leftClickable = False
         elif dataWrist['y'] > dataShoulder['y'] and not leftClickable:
@@ -65,6 +62,3 @@ class request_data:
                 event_loop.run_until_complete(self.request())
             except:
                 pass
-
-
-

@@ -1,26 +1,27 @@
 from threading import Thread
 from server.asyncioWebsocket import receive_websocket
 from server.asyncioWebsocket import transmit_websocket
-
 from server.request import request_data
-#
 from server.seleniumWebsite import seleniumWebsite
 
-# sw = seleniumWebsite()
-# sw.open()
+def main():
+    sw = seleniumWebsite()
+    rw = receive_websocket()
+    tw = transmit_websocket()
+    rq = request_data()
 
+    thread_selenium = Thread(target=sw.open)
+    thread_recWebsocket = Thread(target=rw.run)
+    thread_transWebsocket = Thread(target=tw.run)
+    thread_request = Thread(target=rq.run)
 
-tw = transmit_websocket()
-t2 = Thread(target=tw.run)
-t2.start()
+    thread_selenium.start()
+    thread_recWebsocket.start()
+    thread_transWebsocket.start()
+    thread_request.start()
 
-rw = receive_websocket()
-t = Thread(target=rw.run)
-t.start()
-
-rq = request_data()
-t3 = Thread(target=rq.run)
-t3.start()
+if __name__ == '__main__':
+    main()
 
 
 
