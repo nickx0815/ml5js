@@ -1,24 +1,40 @@
 from threading import Thread
-from server.asyncioWebsocket import receive_websocket
-from server.asyncioWebsocket import transmit_websocket
-from server.request import request_data
+from server.posesWebsocket import receivePosesWebsocket
+from server.posesWebsocket import transmitPosesWebsocket
+from server.soundWebsocket import receiveSoundWebsocket
+from server.soundWebsocket import transmitSoundWebsocket
+from server.requestPoses import requestPoses
+from server.requestSound import requestSound
 from server.seleniumWebsite import seleniumWebsite
 
 def main():
     sw = seleniumWebsite()
-    rw = receive_websocket()
-    tw = transmit_websocket()
-    rq = request_data()
+    rp = receivePosesWebsocket()
+    tp = transmitPosesWebsocket()
+    rs = receiveSoundWebsocket()
+    ts = transmitSoundWebsocket()
 
-    thread_selenium = Thread(target=sw.open)
-    thread_recWebsocket = Thread(target=rw.run)
-    thread_transWebsocket = Thread(target=tw.run)
-    thread_request = Thread(target=rq.run)
+    rq = requestPoses()
+    rsound = requestSound()
 
-    thread_selenium.start()
-    thread_recWebsocket.start()
-    thread_transWebsocket.start()
-    thread_request.start()
+    webdriverBrowser, webdriverPosenet = sw.open()
+    #thread_selenium = Thread(target=sw.open)
+    thread_recPoses = Thread(target=rp.run)
+    thread_transPoses = Thread(target=tp.run)
+
+    thread_recSound = Thread(target=rs.run)
+    thread_transSound = Thread(target=ts.run)
+
+    thread_requestPoses = Thread(target=rq.run)
+    thread_requestSound = Thread(target=rsound.run, args=(webdriverBrowser,webdriverPosenet,))
+
+    #thread_selenium.start()
+    thread_recPoses.start()
+    thread_transPoses.start()
+    thread_recSound.start()
+    thread_transSound.start()
+    thread_requestPoses.start()
+    thread_requestSound.start()
 
 if __name__ == '__main__':
     main()

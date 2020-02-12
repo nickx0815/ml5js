@@ -18,7 +18,20 @@ class Singleton:
 
 
 @Singleton
-class data_store(object):
+class posesData(object):
+    __data = ''
+
+    def __init__(self):
+        pass
+
+    def get_data(self):
+        return self.__data
+
+    def set_data(self, data):
+        self.__data = data
+
+@Singleton
+class soundData(object):
     __data = ''
 
     def __init__(self):

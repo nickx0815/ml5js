@@ -9,9 +9,12 @@ PoseNet example using p5.js
 === */
 
 
+
+let soundModel = 'https://teachablemachine.withgoogle.com/models/SK49Tmvw/';
 let video;
 let poseNet;
 let poses = [];
+let classifier;
 
 // let option = {
 //   imageScaleFactor: 0.3,
@@ -28,6 +31,8 @@ let poses = [];
 function setup() {
   frameRate(24);
   createCanvas(640, 480);
+  classifier = ml5.soundClassifier(soundModel + 'model.json');
+  classifier.classify(gotResult);
   video = createCapture(VIDEO);
   video.size(width, height);
 
@@ -47,11 +52,22 @@ function modelReady() {
   select('#status').html('Model Loaded');
 }
 
+function gotResult(error, results) {
+  if (error) {
+    console.error(error);
+    return;
+  }
+  // The results are in an array ordered by confidence.
+  // console.log(results[0]);
+  label = results.slice(0,3)
+}
+
 function draw() {
   image(video, 0, 0, width, height);
 
   drawKeypoints();
   drawSkeleton();
+
 }
 
 // A function to draw ellipses over the detected keypoints
