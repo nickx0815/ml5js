@@ -41,7 +41,6 @@ class requestSound:
                 webdriverBrowser.close()
                 webdriverPosenet.close()
         elif not _data[0]['label'] in webdriverBrowser.current_url and _data[0]['label'] in domainList and _data[0]['confidence'] > 0.8:
-            # print(_data[0]['label'])
             webdriverBrowser.get(domainList[_data[0]['label']])
 
     def run(self, webdriverBrowser, webdriverPosenet):

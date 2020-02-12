@@ -14,21 +14,19 @@ def main():
     rs = receiveSoundWebsocket()
     ts = transmitSoundWebsocket()
 
-    rq = requestPoses()
+    rposes = requestPoses()
     rsound = requestSound()
 
     webdriverBrowser, webdriverPosenet = sw.open()
-    #thread_selenium = Thread(target=sw.open)
     thread_recPoses = Thread(target=rp.run)
     thread_transPoses = Thread(target=tp.run)
 
     thread_recSound = Thread(target=rs.run)
     thread_transSound = Thread(target=ts.run)
 
-    thread_requestPoses = Thread(target=rq.run)
+    thread_requestPoses = Thread(target=rposes.run)
     thread_requestSound = Thread(target=rsound.run, args=(webdriverBrowser,webdriverPosenet,))
 
-    #thread_selenium.start()
     thread_recPoses.start()
     thread_transPoses.start()
     thread_recSound.start()
@@ -38,9 +36,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-

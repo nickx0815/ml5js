@@ -1,32 +1,8 @@
-// Copyright (c) 2019 ml5
-//
-// This software is released under the MIT License.
-// https://opensource.org/licenses/MIT
-
-/* ===
-ml5 Example
-PoseNet example using p5.js
-=== */
-
-
-
 let soundModel = 'https://teachablemachine.withgoogle.com/models/SK49Tmvw/';
 let video;
 let poseNet;
 let poses = [];
 let classifier;
-
-// let option = {
-//   imageScaleFactor: 0.3,
-//   outputStride: 16,
-//   flipHorizontal: false,
-//   minConfidence: 0.5,
-//   maxPoseDetections: 1,
-//   scoreThreshold: 0.5,
-//   nmsRadius: 20,
-//   detectionType: 'single',
-//   multiplier: 0.75,
-//  }
 
 function setup() {
   frameRate(24);
@@ -42,7 +18,6 @@ function setup() {
   // with an array every time new poses are detected
   poseNet.on('pose', function(results) {
     poses = results;
-
   });
   // Hide the video element, and just show the canvas
   video.hide();
@@ -64,10 +39,8 @@ function gotResult(error, results) {
 
 function draw() {
   image(video, 0, 0, width, height);
-
   drawKeypoints();
   drawSkeleton();
-
 }
 
 // A function to draw ellipses over the detected keypoints
@@ -84,8 +57,6 @@ function drawKeypoints(){
         fill(255, 0, 0);
         noStroke();
         ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
-        //ellipse(100,0,10,10)
-        //console.log(keypoint.position.x, keypoint.position.y);
       }
     }
   }
