@@ -5,7 +5,7 @@ import websockets
 import json
 import ast
 import pyautogui
-
+from server.data_singleton import posesData
 
 domainList = {'google': 'https://www.google.de/?gws_rd=ssl',
               'youtube': 'https://www.youtube.com/?gl=DE',
@@ -18,6 +18,11 @@ actionList = ['back', 'forward', 'close', 'rightClick', 'leftClick']
 
 
 class requestSound:
+
+    def setMousecontrol(self, status):
+        pD = posesData.Instance()
+        if type(status) == bool:
+            pD.set_status(status)
 
     async def request(self, webdriverBrowser, webdriverPosenet):
         uri = "ws://localhost:8090"
@@ -42,6 +47,10 @@ class requestSound:
                 pyautogui.click(button='right')
             elif _data[0]['label'] == "leftClick":
                 pyautogui.click(button='left')
+            elif _data[0]['label'] == "start":
+               self.setMousecontrol(True)
+            elif _data[0]['label'] == "stop":
+                self.setMousecontrol(False)
         elif not _data[0]['label'] in webdriverBrowser.current_url and _data[0]['label'] in domainList and _data[0]['confidence'] > 0.8:
             webdriverBrowser.get(domainList[_data[0]['label']])
 

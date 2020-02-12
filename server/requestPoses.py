@@ -5,6 +5,7 @@ import websockets
 import json
 import pyautogui
 import ast
+from server.data_singleton import posesData
 
 leftClickable = True
 rightClickable = True
@@ -19,7 +20,9 @@ class requestPoses:
             await websocket.send("GET")
             _data = await websocket.recv()
             _data = ast.literal_eval(json.loads(_data))
-            self.actions(_data)
+            pD = posesData.Instance()
+            if pD.get_status():
+                self.actions(_data)
 
     def actions(self, _data):
         if 'nose' in _data:

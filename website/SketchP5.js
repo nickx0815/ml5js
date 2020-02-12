@@ -12,9 +12,19 @@ function setup() {
   classifier.classify(gotResult);
   video = createCapture(VIDEO);
   video.size(width, height);
-
+  let options = {
+         imageScaleFactor: 0.3,
+         outputStride: 16,
+         flipHorizontal: false,
+         minConfidence: 0.5,
+         maxPoseDetections: 5,
+         scoreThreshold: 0.5,
+         nmsRadius: 20,
+         detectionType: 'single',
+         multiplier: 0.75,
+    }
   // Create a new poseNet method with a single detection
-  poseNet = ml5.poseNet(video, modelReady);
+  poseNet = ml5.poseNet(video, modelReady, options);
   // This sets up an event that fills the global variable "poses"
   // with an array every time new poses are detected
   poseNet.on('pose', function(results) {
@@ -25,7 +35,7 @@ function setup() {
 }
 
 function modelReady() {
-  select('#status').html('Model Loaded');
+  select('#poseNet').html('PoseNet Model Loaded');
 }
 
 function gotResult(error, results) {
