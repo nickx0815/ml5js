@@ -1,0 +1,6 @@
+.DS_STORE
+*.log
+.idea/
+__pycache__/
+venv/
+debug.*
