@@ -2,6 +2,7 @@ let soundModel = 'https://teachablemachine.withgoogle.com/models/SK49Tmvw/';
 let video;
 let poseNet;
 let poses = [];
+let label = [];
 let classifier;
 
 function setup() {

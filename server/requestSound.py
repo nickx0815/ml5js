@@ -4,6 +4,8 @@ import asyncio
 import websockets
 import json
 import ast
+from server.posesWebsocket import transmitPosesWebsocket
+import pyautogui
 
 leftClickable = True
 rightClickable = True
@@ -16,7 +18,7 @@ domainList = {'google': 'https://www.google.de/?gws_rd=ssl',
               'paypal': 'https://www.paypal.com/de/home',
               'netflix': 'https://www.netflix.com/de/Login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fbrowse'}
 
-actionList = ['back', 'forward', 'close']
+actionList = ['back', 'forward', 'close','rightClick','leftClick']
 
 
 class requestSound:
@@ -40,6 +42,11 @@ class requestSound:
             elif _data[0]['label'] == "close":
                 webdriverBrowser.close()
                 webdriverPosenet.close()
+            elif _data[0]['label'] == "rightClick":
+                pyautogui.click(button='right')
+            elif _data[0]['label'] == "leftClick":
+                pyautogui.click(button='left')
+
         elif not _data[0]['label'] in webdriverBrowser.current_url and _data[0]['label'] in domainList and _data[0]['confidence'] > 0.8:
             webdriverBrowser.get(domainList[_data[0]['label']])
 

@@ -2,6 +2,7 @@ import asyncio
 from server.data_singleton import posesData
 import websockets
 
+
 class receivePosesWebsocket:
 
     async def receive(self, websocket, path):
@@ -16,6 +17,7 @@ class receivePosesWebsocket:
         new_loop.run_until_complete(server)
         new_loop.run_forever()
 
+
 class transmitPosesWebsocket:
 
     async def transmit(self, websocket, path):
@@ -29,8 +31,3 @@ class transmitPosesWebsocket:
         server2 = websockets.serve(self.transmit, "localhost", 8080, loop=new_loop2)
         new_loop2.run_until_complete(server2)
         new_loop2.run_forever()
-
-
-
-
-
