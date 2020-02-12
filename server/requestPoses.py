@@ -19,7 +19,7 @@ class requestPoses:
             await websocket.send("GET")
             _data = await websocket.recv()
             _data = ast.literal_eval(json.loads(_data))
-            #self.actions(_data)
+            self.actions(_data)
 
     def actions(self, _data):
         if 'nose' in _data:
@@ -39,21 +39,17 @@ class requestPoses:
         global rightClickable
         if wrist['y'] < nose['y'] and rightClickable:
             pyautogui.click(button='right')
-            #print('Right Clicked')
             rightClickable = False
         elif wrist['y'] > nose['y'] and not rightClickable:
             rightClickable = True
-            #print('Right Reset')
 
     def leftClick(self, wrist, nose):
         global leftClickable
         if wrist['y'] < nose['y'] and leftClickable:
             pyautogui.click(button='left')
-            #print('Left Clicked')
             leftClickable = False
         elif wrist['y'] > nose['y'] and not leftClickable:
             leftClickable = True
-            #print('Left Reset')
 
     def run(self):
         while True:
