@@ -5,7 +5,6 @@ import websockets
 import json
 import ast
 import pyautogui
-from server.data_singleton import posesData
 
 domainList = {'google': 'https://www.google.de/?gws_rd=ssl',
               'youtube': 'https://www.youtube.com/?gl=DE',
