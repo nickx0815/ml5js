@@ -48,16 +48,13 @@ function initPoseNet() {
         detectionType: detectionTypeid,
         multiplier: multiplierid,
     }
-    poseNet = ml5.poseNet(video, modelReady, options);
+    poseNet = ml5.poseNet(video);
     poseNet.on('pose', function (results) {
         poses = results;
     });
     video.hide();
 }
 
-function modelReady() {
-    select('#poseNet').html('PoseNet Model Loaded');
-}
 
 function gotResult(error, results) {
     if (error) {
