@@ -10,6 +10,8 @@ from server.data_singleton import posesData
 leftClickable = True
 rightClickable = True
 previousPosition = (0, 0)
+resolution = (1920,1080)
+p5Window = (640, 480)
 
 
 class requestPoses:
@@ -32,8 +34,10 @@ class requestPoses:
 
     def mouseMove(self, data):
         global previousPosition
+        global resolution
+        global p5Window
         if not previousPosition[0] == int(data['x']) and not previousPosition[1] == int(data['y']):
-            pyautogui.moveTo(1920 - (3 * float(data['x'])), 2.25 * float(data['y']))
+            pyautogui.moveTo(resolution[0] - (resolution[0]/p5Window[0] * float(data['x'])), resolution[1]/p5Window[2] * float(data['y']))
             previousPosition = (int(data['x']), int(data['y']))
 
     def rightClick(self, wrist, nose):
