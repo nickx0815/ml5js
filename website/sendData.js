@@ -3,7 +3,6 @@
 function sendPose() {
 
     if (poses.length != 0 && sendPoses){
-        console.log("posesactivated")
       var data = JSON.stringify(poses[0]['pose']);
       let socket = new WebSocket("ws://localhost:8000");
       socket.onopen = function(e) {

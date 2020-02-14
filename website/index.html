@@ -15,9 +15,17 @@
     <h2 id='poseLabel'>Loading Posenet...</h2>
     <h2 id="soundLabel">Loading Soundclassifier...</h2>
     <br/>
-
-
     <div id="input_container" style="margin:10px">
+        <div class="row">
+              <div class="col-sm-12">
+               <label for="architectureid">architecture
+                    <select id="architectureid" size="1">
+                        <option selected="selected">MobileNetV1</option>
+                        <option>ResNet50</option>
+                    </select>
+                </label>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12">
                 <label for="imageScaleFactorid">imageScaleFactor:</label>
@@ -47,7 +55,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <label for="nmsRadiusid">nmsRadius:</label>
                 <input id="nmsRadiusid" step='1' value='20'>
             </div>
@@ -60,7 +68,7 @@
             <div class="col-sm-2">
                  <label for="detectionTypeid">detectionType
                     <select id="detectionTypeid" size="1">
-                        <option>single</option>
+                        <option selected="selected">single</option>
                         <option>multiple</option>
                     </select>
                 </label>

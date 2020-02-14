@@ -31,6 +31,7 @@ function initPoseNet() {
     var nmsRadiusid = parseInt(document.getElementById("nmsRadiusid").value)
     var multiplierid = parseInt(document.getElementById("multiplierid").value)
     var detectionTypeid = document.getElementById("detectionTypeid").value
+    var architectureid = document.getElementById("architectureid").value
      if (document.getElementById("flipHorizontalid").checked){
         flipHorizontalid = true
     } else {
@@ -38,6 +39,7 @@ function initPoseNet() {
     }
 
     let options = {
+         architecture: architectureid,
         imageScaleFactor: imageScaleFactorid,
         outputStride: outputStrideid,
         flipHorizontal: flipHorizontalid,
