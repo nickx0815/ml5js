@@ -20,9 +20,7 @@ class requestPoses:
             await websocket.send("GET")
             _data = await websocket.recv()
             _data = ast.literal_eval(json.loads(_data))
-            pD = posesData.Instance()
-            if pD.get_status():
-                self.actions(_data)
+            self.actions(_data)
 
     def actions(self, _data):
         if 'nose' in _data:

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d282cb0-307f-4918-a72d-71bb6b64f342" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/website/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/chromedriver.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/data_singleton.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/data_singleton.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/requestPoses.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/requestPoses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/requestSound.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/requestSound.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/requestPoses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/requestSound.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/seleniumWebsite.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/SketchP5.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/SketchP5.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/sendData.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/sendData.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +229,9 @@
       <workItem from="1581506994333" duration="9289000" />
       <workItem from="1581523826969" duration="7080000" />
       <workItem from="1581536383476" duration="3953000" />
-      <workItem from="1581545943690" duration="398000" />
+      <workItem from="1581545943690" duration="583000" />
+      <workItem from="1581546584848" duration="119000" />
+      <workItem from="1581684623747" duration="7430000" />
     </task>
     <servers />
   </component>
@@ -244,42 +251,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="146" key="#data_singleton/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581271670971" />
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1581546525404">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546525404" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1581433454686">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581433454686" />
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom" timestamp="1581546374478">
+    <state width="1877" height="156" key="GridCell.Tab.0.bottom" timestamp="1581692778091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546374478" />
-    <state width="1877" height="221" key="GridCell.Tab.0.center" timestamp="1581546374478">
+    <state width="1877" height="156" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692778091" />
+    <state width="1877" height="156" key="GridCell.Tab.0.center" timestamp="1581692778091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546374478" />
-    <state width="1877" height="221" key="GridCell.Tab.0.left" timestamp="1581546374477">
+    <state width="1877" height="156" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692778091" />
+    <state width="1877" height="156" key="GridCell.Tab.0.left" timestamp="1581692778091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546374477" />
-    <state width="1877" height="221" key="GridCell.Tab.0.right" timestamp="1581546374478">
+    <state width="1877" height="156" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692778091" />
+    <state width="1877" height="156" key="GridCell.Tab.0.right" timestamp="1581692778091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546374478" />
-    <state width="1877" height="221" key="GridCell.Tab.1.bottom" timestamp="1581546396555">
+    <state width="1877" height="156" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692778091" />
+    <state width="1877" height="156" key="GridCell.Tab.1.bottom" timestamp="1581692777994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546396555" />
-    <state width="1877" height="221" key="GridCell.Tab.1.center" timestamp="1581546396555">
+    <state width="1877" height="156" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692777994" />
+    <state width="1877" height="156" key="GridCell.Tab.1.center" timestamp="1581692777994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546396555" />
-    <state width="1877" height="221" key="GridCell.Tab.1.left" timestamp="1581546396555">
+    <state width="1877" height="156" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692777994" />
+    <state width="1877" height="156" key="GridCell.Tab.1.left" timestamp="1581692777994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546396555" />
-    <state width="1877" height="221" key="GridCell.Tab.1.right" timestamp="1581546396555">
+    <state width="1877" height="156" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692777994" />
+    <state width="1877" height="156" key="GridCell.Tab.1.right" timestamp="1581692777994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="221" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581546396555" />
+    <state width="1877" height="156" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581692777994" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1581687711973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1920.2.1920.1040@0.0.1920.1040" timestamp="1581687711973" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1581431384182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -316,6 +331,7 @@
         <watch expression="self.posesWebsocket.getData()" language="Python" />
         <watch expression="transmitPosesWebsocket().getData()" language="Python" />
         <watch expression="data.get_data()" language="Python" />
+        <watch expression="pD.get_status()" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -331,7 +347,7 @@
     <SUITE FILE_PATH="coverage/ml5js$websocket_receiver.coverage" NAME="websocket_receiver Coverage Results" MODIFIED="1581272435778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/ml5js$websockets__1_.coverage" NAME="websockets (1) Coverage Results" MODIFIED="1581273363071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/ml5js$request.coverage" NAME="request Coverage Results" MODIFIED="1581270564741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ml5js$start.coverage" NAME="start Coverage Results" MODIFIED="1581546374325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ml5js$start.coverage" NAME="start Coverage Results" MODIFIED="1581692777938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ml5js$start_service.coverage" NAME="start_service Coverage Results" MODIFIED="1581373303804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ml5js$webserver_socket.coverage" NAME="webserver_socket Coverage Results" MODIFIED="1581270888684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -3,9 +3,9 @@ from server.posesWebsocket import receivePosesWebsocket
 from server.posesWebsocket import transmitPosesWebsocket
 from server.soundWebsocket import receiveSoundWebsocket
 from server.soundWebsocket import transmitSoundWebsocket
-from server.requestPoses import requestPoses
-from server.requestSound import requestSound
-from server.seleniumWebsite import seleniumWebsite
+from control.requestPoses import requestPoses
+from control.requestSound import requestSound
+from control.seleniumWebsite import seleniumWebsite
 
 def main():
     sw = seleniumWebsite()

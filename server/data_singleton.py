@@ -20,7 +20,7 @@ class Singleton:
 @Singleton
 class posesData(object):
     __data = ''
-    __status = True
+    __status = False
 
     def __init__(self):
         pass
