@@ -17,6 +17,16 @@
     <br/>
     <div id="input_container" style="margin:10px">
         <div class="row">
+            <div class="col-sm-2">
+                <label for="sendPosesid">Activate Posenet?</label>
+                <input id="sendPosesid" value="true" type="checkbox">
+            </div>
+            <div class="col-sm-2">
+                  <label for="sendSoundid">Activate soundClassifier?</label>
+                <input id="sendSoundid" type="checkbox" checked>
+            </div>
+        </div>
+        <div class="row">
               <div class="col-sm-12">
                <label for="architectureid">architecture
                     <select id="architectureid" size="1">
@@ -75,21 +85,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <label for="sendPosesid">Activate Posenet?</label>
-                <input id="sendPosesid" value="true" type="checkbox">
-            </div>
-            <div class="col-sm-2">
-                  <label for="sendSoundid">Activate soundClassifier?</label>
-                <input id="sendSoundid" type="checkbox" checked>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-sm-12">
                 <button onclick="initPoseNet()">Submit</button>
             </div>
         </div>
     </div>
-
   </body>
 </html>

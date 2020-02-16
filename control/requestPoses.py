@@ -5,7 +5,6 @@ import websockets
 import json
 import pyautogui
 import ast
-from server.data_singleton import posesData
 
 leftClickable = True
 rightClickable = True
@@ -37,29 +36,24 @@ class requestPoses:
         global resolution
         global p5Window
         if not previousPosition[0] == int(data['x']) and not previousPosition[1] == int(data['y']):
-            print("Move")
             pyautogui.moveTo(int(resolution[0] - (resolution[0]/p5Window[0] * float(data['x']))), int(resolution[1]/p5Window[1] * float(data['y'])))
             previousPosition = (int(data['x']), int(data['y']))
 
     def rightClick(self, wrist, nose):
         global rightClickable
         if wrist['y'] < nose['y'] and rightClickable:
-            print("Right")
             pyautogui.click(button='right')
             rightClickable = False
         elif wrist['y'] > nose['y'] and not rightClickable:
             rightClickable = True
-            print("Right Reset")
 
     def leftClick(self, wrist, nose):
         global leftClickable
         if wrist['y'] < nose['y'] and leftClickable:
-            print("Left")
             pyautogui.click(button='left')
             leftClickable = False
         elif wrist['y'] > nose['y'] and not leftClickable:
             leftClickable = True
-            print("Left Reset")
 
     def run(self):
         while True:
