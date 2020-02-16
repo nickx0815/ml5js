@@ -8,6 +8,10 @@ class receiveSoundWebsocket:
     async def receive(self, websocket, path):
         data = soundData.Instance()
         ps_data = await websocket.recv()
+        if ps_data == "false":
+            data.set_status(False)
+        else:
+            data.set_status(True)
         data.set_data(ps_data)
         await websocket.send("OK")
 

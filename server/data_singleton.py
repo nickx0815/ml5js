@@ -40,6 +40,7 @@ class posesData(object):
 @Singleton
 class soundData(object):
     __data = ''
+    __status = False
 
     def __init__(self):
         pass
@@ -49,3 +50,9 @@ class soundData(object):
 
     def set_data(self, data):
         self.__data = data
+
+    def get_status(self):
+        return self.__status
+
+    def set_status(self, status):
+        self.__status = status

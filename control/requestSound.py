@@ -6,6 +6,7 @@ import json
 import ast
 import pyautogui
 from time import sleep
+from server.data_singleton import soundData
 
 
 class requestSound:
@@ -46,10 +47,13 @@ class requestSound:
             webdriverBrowser.get(self.domainList[_data[0]['label']])
 
     def run(self, webdriverBrowser, webdriverPosenet):
+        sData = soundData.Instance()
         while True:
+            status = sData.get_status()
             sleep(2)
-            try:
-                event_loop = asyncio.new_event_loop()
-                event_loop.run_until_complete(self.request(webdriverBrowser, webdriverPosenet))
-            except:
-                pass
+            if status:
+                try:
+                    event_loop = asyncio.new_event_loop()
+                    event_loop.run_until_complete(self.request(webdriverBrowser, webdriverPosenet))
+                except:
+                    pass

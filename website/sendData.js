@@ -56,21 +56,35 @@ function sendSound() {
         }
     }
     if (label.length > 0 && sendSounds) {
-        if (label[0]['confidence']>0.9){
+        if (label[0]['confidence'] > 0.9) {
             console.log("YOH")
-                var data = JSON.stringify(label)
-                let socket = new WebSocket("ws://localhost:8010");
-                socket.onopen = function (e) {
-                    socket.send(JSON.stringify(data))
-                };
-                var conf = JSON.stringify(label[0]['confidence'] * 100)
-                document.getElementById("soundLabel").innerHTML = "Sound detected: " + JSON.stringify(label[0]['label']) + " , Confidence: " + conf.substring(0, 5) + " %"; // 6.7;
-            }
+            var data = JSON.stringify(label)
+            let socket = new WebSocket("ws://localhost:8010");
+            socket.onopen = function (e) {
+                socket.send(JSON.stringify(data))
+            };
+            var conf = JSON.stringify(label[0]['confidence'] * 100)
+            document.getElementById("soundLabel").innerHTML = "Sound detected: " + JSON.stringify(label[0]['label']) + " , Confidence: " + conf.substring(0, 5) + " %"; // 6.7;
+        }
+        sendsound = true;
     }
-    if (!sendSounds) {
+    if (!sendSounds && sendsound) {
+        let socket = new WebSocket("ws://localhost:8010");
+        socket.onopen = function (e) {
+            socket.send("false")
+        };
+
         document.getElementById("soundLabel").innerHTML = "Sound Classifier deactivated"; // 6.7;
+        sendsound = false;
     }
 }
+
+
+
+
+
+
+
 
 var intervalPose = 50;
 var intervalSound = 200;
