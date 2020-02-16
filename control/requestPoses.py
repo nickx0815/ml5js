@@ -5,6 +5,7 @@ import websockets
 import json
 import pyautogui
 import ast
+from server.data_singleton import posesData
 
 
 class requestPoses:
@@ -53,9 +54,13 @@ class requestPoses:
             self.leftClickable = True
 
     def run(self):
+        pData = posesData.Instance()
         while True:
-            try:
-                event_loop = asyncio.new_event_loop()
-                event_loop.run_until_complete(self.request())
-            except:
-                pass
+            status = pData.get_status()
+            if status:
+                try:
+                    event_loop = asyncio.new_event_loop()
+                    event_loop.run_until_complete(self.request())
+                except:
+                    pass
+

@@ -5,6 +5,7 @@ import websockets
 import json
 import ast
 import pyautogui
+from time import sleep
 
 
 class requestSound:
@@ -46,6 +47,7 @@ class requestSound:
 
     def run(self, webdriverBrowser, webdriverPosenet):
         while True:
+            sleep(2)
             try:
                 event_loop = asyncio.new_event_loop()
                 event_loop.run_until_complete(self.request(webdriverBrowser, webdriverPosenet))
