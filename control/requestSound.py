@@ -6,22 +6,18 @@ import json
 import ast
 import pyautogui
 
-domainList = {'google': 'https://www.google.de/?gws_rd=ssl',
-              'youtube': 'https://www.youtube.com/?gl=DE',
-              'host': 'https://www.hochschule-stralsund.de/',
-              'amazon': 'https://www.amazon.de/',
-              'paypal': 'https://www.paypal.com/de/home',
-              'netflix': 'https://www.netflix.com/de/Login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fbrowse'}
-
-actionList = ['back', 'forward', 'close', 'rightClick', 'leftClick']
-
 
 class requestSound:
 
-    # def setMousecontrol(self, status):
-    #     pD = posesData.Instance()
-    #     if type(status) == bool:
-    #         pD.set_status(status)
+    def __init__(self):
+        self.domainList = {'google': 'https://www.google.de/?gws_rd=ssl',
+                           'youtube': 'https://www.youtube.com/?gl=DE',
+                           'host': 'https://www.hochschule-stralsund.de/',
+                           'amazon': 'https://www.amazon.de/',
+                           'paypal': 'https://www.paypal.com/de/home',
+                           'netflix': 'https://www.netflix.com/de/Login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fbrowse'}
+
+        self.actionList = ['back', 'forward', 'close', 'rightClick', 'leftClick']
 
     async def request(self, webdriverBrowser, webdriverPosenet):
         uri = "ws://localhost:8090"
@@ -32,9 +28,7 @@ class requestSound:
             self.actions(_data, webdriverBrowser, webdriverPosenet)
 
     def actions(self, _data, webdriverBrowser, webdriverPosenet):
-        global domainList
-        global actionList
-        if _data[0]['label'] in actionList and _data[0]['confidence'] > 0.9:
+        if _data[0]['label'] in self.actionList and _data[0]['confidence'] > 0.9:
             if _data[0]['label'] == "back":
                 webdriverBrowser.back()
             elif _data[0]['label'] == "forward":
@@ -46,12 +40,9 @@ class requestSound:
                 pyautogui.click(button='right')
             elif _data[0]['label'] == "leftClick":
                 pyautogui.click(button='left')
-            # elif _data[0]['label'] == "start":
-            #    self.setMousecontrol(True)
-            # elif _data[0]['label'] == "stop":
-            #     self.setMousecontrol(False)
-        elif not _data[0]['label'] in webdriverBrowser.current_url and _data[0]['label'] in domainList and _data[0]['confidence'] > 0.8:
-            webdriverBrowser.get(domainList[_data[0]['label']])
+        elif not _data[0]['label'] in webdriverBrowser.current_url and _data[0]['label'] in self.domainList and \
+                _data[0]['confidence'] > 0.8:
+            webdriverBrowser.get(self.domainList[_data[0]['label']])
 
     def run(self, webdriverBrowser, webdriverPosenet):
         while True:

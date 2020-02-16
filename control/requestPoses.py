@@ -6,14 +6,15 @@ import json
 import pyautogui
 import ast
 
-leftClickable = True
-rightClickable = True
-previousPosition = (0, 0)
-resolution = (1920,1080)
-p5Window = (640, 480)
-
 
 class requestPoses:
+
+    def __init__(self):
+        self.leftClickable = True
+        self.rightClickable = True
+        self.previousPosition = (0, 0)
+        self.resolution = (1920, 1080)
+        self.p5Window = (640, 480)
 
     async def request(self):
         uri = "ws://localhost:8080"
@@ -32,12 +33,10 @@ class requestPoses:
             self.leftClick(_data['leftWrist'], _data['nose'])
 
     def mouseMove(self, data):
-        global previousPosition
-        global resolution
-        global p5Window
-        if not previousPosition[0] == int(data['x']) and not previousPosition[1] == int(data['y']):
-            pyautogui.moveTo(int(resolution[0] - (resolution[0]/p5Window[0] * float(data['x']))), int(resolution[1]/p5Window[1] * float(data['y'])))
-            previousPosition = (int(data['x']), int(data['y']))
+        if not self.previousPosition[0] == int(data['x']) and not self.previousPosition[1] == int(data['y']):
+            pyautogui.moveTo(int(self.resolution[0] - (self.resolution[0] / self.p5Window[0] * float(data['x']))),
+                             int(self.resolution[1] / self.p5Window[1] * float(data['y'])))
+            self.previousPosition = (int(data['x']), int(data['y']))
 
     def rightClick(self, wrist, nose):
         global rightClickable
