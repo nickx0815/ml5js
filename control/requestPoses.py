@@ -39,20 +39,18 @@ class requestPoses:
             self.previousPosition = (int(data['x']), int(data['y']))
 
     def rightClick(self, wrist, nose):
-        global rightClickable
-        if wrist['y'] < nose['y'] and rightClickable:
+        if wrist['y'] < nose['y'] and self.rightClickable:
             pyautogui.click(button='right')
-            rightClickable = False
-        elif wrist['y'] > nose['y'] and not rightClickable:
-            rightClickable = True
+            self.rightClickable = False
+        elif wrist['y'] > nose['y'] and not self.rightClickable:
+            self.rightClickable = True
 
     def leftClick(self, wrist, nose):
-        global leftClickable
-        if wrist['y'] < nose['y'] and leftClickable:
+        if wrist['y'] < nose['y'] and self.leftClickable:
             pyautogui.click(button='left')
-            leftClickable = False
-        elif wrist['y'] > nose['y'] and not leftClickable:
-            leftClickable = True
+            self.leftClickable = False
+        elif wrist['y'] > nose['y'] and not self.leftClickable:
+            self.leftClickable = True
 
     def run(self):
         while True:

@@ -15,22 +15,27 @@ function sendPose() {
     }
 }
 function sendSound() {
-    //TODO Sprachsteuerung Start und Stop hier einbauen nicht beim request
     if (label.length > 0){
 
         if (label[0]['label']=="start" && label[0]['confidence']>0.9){
-             console.log(typeof label[0]['confidence'])
             if (!document.getElementById("sendPosesid").checked){
                 document.getElementById("sendPosesid").click()
                 initPoseNet()
             }
 
         }
-        if (label[0]['label']=="stop" && label[0]['confidence']>0.9){
+        else if (label[0]['label']=="stop" && label[0]['confidence']>0.9){
              if (document.getElementById("sendPosesid").checked){
                 document.getElementById("sendPosesid").click()
                  initPoseNet()
             }
+        }
+         else if (label[0]['label']=="close" && label[0]['confidence']>0.9){
+            if (document.getElementById("sendPosesid").checked){
+                document.getElementById("sendPosesid").click()
+                initPoseNet()
+            }
+
         }
     }
     if (label.length > 0 && sendSounds){
